@@ -4,6 +4,12 @@ This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror
 
 MagicMirror module that connects to the Samsung Smartthings api to display device status information.
 
+## Modifications
+
+This fork has been modified by Cydergoth to use a two column layout, move the icon position and suppress the value 
+for locks. These changes make it more suitable for a smaller display, especially if you use short names for your 
+sensors.  
+
 ## Example
 
 ![](./images/MMM-Smarthings.png)

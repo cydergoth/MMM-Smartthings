@@ -107,6 +107,7 @@ Module.register("MMM-Smartthings", {
 				const device = this.deviceStatuses[sensorKey];
 				let iconClass = 'zmdi';
 				let rowClass = '';
+                let v = '';
 				if (device.value === 'locked' || device.value === 'closed') {
 					iconClass = `${iconClass} zmdi-lock`;
 					rowClass = `${rowClass} ok`;
@@ -127,8 +128,10 @@ Module.register("MMM-Smartthings", {
 					} else {
 						iconClass = `sensor-temp fa fa-thermometer-half`;
 					}
+                    v = device.value;
 				} else if (device.deviceType === 'relativeHumidityMeasurement') {
 					iconClass = `${iconClass} zmdi-grain`;
+                    v = device.value;
 				} else if (device.deviceType === 'motionSensor') {
 					if(device.value === 'active') {
 						iconClass = `sensor-motion ${iconClass} zmdi-run`;
@@ -141,9 +144,9 @@ Module.register("MMM-Smartthings", {
 				return `
                 <li class="sensor ${rowClass}">
                   <span class="sensor-icon ${device.deviceType}"></span>
-                  <span class="sensor-name">${device.deviceName}</span>
                   <span class="sensor-status-icon ${iconClass}"></span>
-                  <span class="sensor-status-name">${device.value}</span>
+                  <span class="sensor-name">${device.deviceName}</span>
+                  <span class="sensor-status-name">${v}</span>
                 </li>
             `;
 			})
